@@ -328,7 +328,8 @@
 
             videos.forEach((video, index) => {
                 // Logic to extract video ID from the embed URL and construct the thumbnail URL
-                const videoIdMatch = video.url.match(/embed\/(.+)/);
+                // FIX: Updated regex to specifically capture only the ID before any query parameters (?)
+                const videoIdMatch = video.url.match(/embed\/([^?]+)/);
                 let thumbnailUrl = 'https://placehold.co/300x169/27272a/ffffff?text=Video+Thumbnail+Error'; // Fallback
 
                 if (videoIdMatch && videoIdMatch[1]) {
