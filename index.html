@@ -178,8 +178,8 @@
                 <h3 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-green-400">Over the Years - Memories</h3>
                 <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-xl">
                     <div id="historical-video-viewer" class="video-container mb-6 bg-black rounded-lg">
-                        <!-- Default video will load here -->
-                        <iframe id="historical-iframe" src="https://www.youtube.com/embed/v9qJ51lW6_U?controls=0" title="Historical Default Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <!-- Default video will load here - UPDATED TO NEW VIDEO -->
+                        <iframe id="historical-iframe" src="https://www.youtube.com/embed/TsIeXG9ECXo?controls=0" title="Historical Default Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
 
                     <h4 class="text-2xl font-semibold mb-4 text-white">Video Gallery</h4>
@@ -228,22 +228,25 @@
             { title: "Front Flip Attempt 2", url: "https://www.youtube.com/embed/1kXonQ2S63k" },
         ];
 
+        // UPDATED: New video is now the first entry and default
         const historicalVideos = [
+            { title: "Over the years", url: "https://www.youtube.com/embed/TsIeXG9ECXo" }, // NEW DEFAULT VIDEO
             { title: "First Day of School", url: "https://www.youtube.com/embed/v9qJ51lW6_U" },
             { title: "Summer Trip 2023", url: "https://www.youtube.com/embed/N-0g8n4zE2U" },
             { title: "Birthday Party Age 10", url: "https://www.youtube.com/embed/QdO-pE93F34" },
         ];
 
-        // Photo data using the consistent image URL
+        // Photo data for the album. Now includes all unique images from the slideshow.
         const photoUrls = [
-            userImageURL,
-            userImageURL,
-            userImageURL,
-            userImageURL,
-            userImageURL,
-            userImageURL,
-            userImageURL,
-            userImageURL,
+            "https://raw.githubusercontent.com/jwroberts1/jwrjr/main/PresentationGuion.jpeg",
+            "https://raw.githubusercontent.com/jwroberts1/jwrjr/main/MostLikely.jpeg",
+            "https://raw.githubusercontent.com/jwroberts1/jwrjr/main/Running.jpeg",
+            // Repeating the set to fill the gallery nicely
+            "https://raw.githubusercontent.com/jwroberts1/jwrjr/main/PresentationGuion.jpeg",
+            "https://raw.githubusercontent.com/jwroberts1/jwrjr/main/MostLikely.jpeg",
+            "https://raw.githubusercontent.com/jwroberts1/jwrjr/main/Running.jpeg",
+            "https://raw.githubusercontent.com/jwroberts1/jwrjr/main/PresentationGuion.jpeg",
+            "https://raw.githubusercontent.com/jwroberts1/jwrjr/main/MostLikely.jpeg",
         ];
 
         // --- ELEMENTS ---
@@ -335,7 +338,7 @@
 
                 if (videoIdMatch && videoIdMatch[1]) {
                     const videoId = videoIdMatch[1];
-                    // FIX: Using the highly reliable '0.jpg' thumbnail again.
+                    // Using the highly reliable '0.jpg' thumbnail
                     thumbnailUrl = `https://img.youtube.com/vi/${videoId}/0.jpg`;
                 }
                 
