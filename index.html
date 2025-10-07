@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johnathon Roberts Jr. - Digital Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font import and basic styling */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712; /* Darker background */
+            color: #f3f4f6;
+        }
+        
+        /* Custom hover effect for cards */
+        .interest-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.5), 0 4px 6px -2px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Styling for the video player container for 16:9 aspect ratio */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 * 100) */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main Container -->
+    <div class="min-h-screen flex flex-col items-center p-4 sm:p-8">
+
+        <!-- Header/Navigation Bar -->
+        <header class="w-full max-w-5xl py-4 border-b border-gray-700 mb-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+                <h1 class="text-3xl font-extrabold tracking-tight text-white mb-4 sm:mb-0">
+                    <span class="text-indigo-400">JRJ</span> Portfolio
+                </h1>
+                
+                <!-- Navigation Links -->
+                <nav class="flex space-x-4 md:space-x-6">
+                    <a href="#home" id="nav-home" class="nav-link text-white font-medium hover:text-indigo-400 transition duration-150 border-b-2 border-indigo-500 pb-1">Home</a>
+                    <a href="#parkour-videos" id="nav-parkour-videos" class="nav-link text-gray-400 hover:text-indigo-400 transition duration-150 pb-1">Parkour Videos</a>
+                    <a href="#historical-videos" id="nav-historical-videos" class="nav-link text-gray-400 hover:text-indigo-400 transition duration-150 pb-1">Historical Videos</a>
+                    <a href="#photos" id="nav-photos" class="nav-link text-gray-400 hover:text-indigo-400 transition duration-150 pb-1">Photos</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content Area (View Container) -->
+        <main class="w-full max-w-5xl flex-grow">
+            
+            <!-- View 1: Home/Interests Page -->
+            <section id="home" class="app-view">
+                <div class="text-center mb-16 py-10 px-6 bg-gray-800 rounded-xl shadow-2xl border border-indigo-700/50">
+                    <h2 class="text-4xl sm:text-6xl font-black mb-4 leading-tight">
+                        Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-green-400"> Johnathon Roberts Jr. </span>!
+                    </h2>
+                    <p class="text-xl text-gray-400 mb-8 max-w-3xl mx-auto">
+                        Welcome to my official page for my school project. Below are some of the things I'm passionate about.
+                    </p>
+                    
+                    <!-- Slideshow Area -->
+                    <div class="mx-auto w-32 h-32 rounded-full overflow-hidden border-4 border-indigo-500 shadow-lg mb-6">
+                        <img id="slideshow-image" 
+                             src="https://placehold.co/128x128/6366f1/ffffff?text=JRJ" 
+                             alt="Profile Slideshow" 
+                             class="w-full h-full object-cover transition-opacity duration-500 ease-in-out">
+                    </div>
+                    <a href="#interests" class="inline-block px-8 py-3 text-lg font-semibold rounded-full text-white bg-indigo-600 hover:bg-indigo-500 transition duration-300 shadow-md hover:shadow-lg">
+                        See My Passions &rarr;
+                    </a>
+                </div>
+
+                <!-- Interests Section -->
+                <section id="interests" class="mb-16">
+                    <h3 class="text-3xl sm:text-4xl font-bold text-center mb-10 text-white">What I'm All About</h3>
+                    
+                    <!-- Responsive Grid for Interests -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        
+                        <!-- Interest 1: Parkour -->
+                        <div class="interest-card p-6 bg-gray-800 rounded-xl border border-gray-700">
+                            <div class="text-5xl mb-4 text-center">🤸</div>
+                            <h4 class="text-2xl font-semibold mb-3 text-indigo-400">Parkour / Freerunning</h4>
+                            <p class="text-gray-400 mb-4 text-sm">
+                                I love pushing my physical limits and seeing the world as an obstacle course. It's all about **flow, strength, and spatial awareness**.
+                            </p>
+                            <ul class="text-sm space-y-1 text-gray-400 list-disc pl-5">
+                                <li>Favorite Move: <span class="text-white">The Parkour Roll Out</span></li>
+                                <li>Current Goal: <span class="text-white">Mastering the Front Flip</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Interest 2: One Piece Manga -->
+                        <div class="interest-card p-6 bg-gray-800 rounded-xl border border-gray-700">
+                            <div class="text-5xl mb-4 text-center">🏴‍☠️</div>
+                            <h4 class="text-2xl font-semibold mb-3 text-green-400">One Piece Manga</h4>
+                            <p class="text-gray-400 mb-4 text-sm">
+                                I am completely hooked on the story of Luffy and the Straw Hats. The themes of **freedom, loyalty, and chasing your dreams** really resonate with me. Plus, the action is incredible!
+                            </p>
+                            <ul class="text-sm space-y-1 text-gray-400 list-disc pl-5">
+                                <li>Favorite Character: <span class="text-white">Monkey D. Luffy</span></li>
+                                <li>Current Saga: <span class="text-white">Wano Country Arc</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Interest 3: Spending Time with Friends -->
+                        <div class="interest-card p-6 bg-gray-800 rounded-xl border border-gray-700">
+                            <div class="text-5xl mb-4 text-center">🎮</div>
+                            <h4 class="text-2xl font-semibold mb-3 text-amber-400">Hanging Out & Gaming</h4>
+                            <p class="text-gray-400 mb-4 text-sm">
+                                When I'm not studying or training, I love spending time with my crew. We mostly game online or just chill out. **Friendship is the most important treasure!**
+                            </p>
+                            <ul class="text-sm space-y-1 text-gray-400 list-disc pl-5">
+                                <li>Favorite Games: <span class="text-white">Roblox, Fortnite, and Borderlands</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- About Me Section -->
+                <section id="about" class="mb-16 py-8 px-6 bg-gray-800 rounded-xl border border-gray-700">
+                    <h3 class="text-3xl sm:text-4xl font-bold text-center mb-6 text-white">More About My Goals</h3>
+                    <div class="max-w-4xl mx-auto text-gray-400 space-y-4 text-base">
+                        <p>
+                            <!-- Main Essay/Description Placeholder -->
+                            This is the perfect place to put the main body of his assignment—a short essay or description about his goals, his future plans, or what he learns from his hobbies. For example, he could write about how Parkour teaches him discipline, or how the themes in One Piece motivate him in real life.
+                        </p>
+                        <p class="text-right italic text-sm text-indigo-400">
+                            "The world's a wide place, and I'm ready for the next adventure." - Johnathon Roberts Jr.
+                        </p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- View 2: Parkour Videos Page -->
+            <section id="parkour-videos" class="app-view hidden">
+                <h3 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-indigo-400">Parkour Training Videos</h3>
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-xl">
+                    <div id="parkour-video-viewer" class="video-container mb-6 bg-black rounded-lg">
+                        <!-- Default video will load here -->
+                        <iframe id="parkour-iframe" src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0" title="Parkour Default Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    
+                    <h4 class="text-2xl font-semibold mb-4 text-white">Video Gallery</h4>
+                    <!-- Gallery of Videos -->
+                    <div id="parkour-gallery" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <!-- Gallery items will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- View 3: Historical Videos Page -->
+            <section id="historical-videos" class="app-view hidden">
+                <h3 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-green-400">Over the Years - Memories</h3>
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-xl">
+                    <div id="historical-video-viewer" class="video-container mb-6 bg-black rounded-lg">
+                        <!-- Default video will load here -->
+                        <iframe id="historical-iframe" src="https://www.youtube.com/embed/v9qJ51lW6_U?controls=0" title="Historical Default Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    <h4 class="text-2xl font-semibold mb-4 text-white">Video Gallery</h4>
+                    <!-- Gallery of Videos -->
+                    <div id="historical-gallery" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                         <!-- Gallery items will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- View 4: Photos Page -->
+            <section id="photos" class="app-view hidden">
+                <h3 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-amber-400">Photo Album</h3>
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-xl">
+                    <div id="photo-gallery" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <!-- Photo gallery items will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="w-full max-w-5xl py-6 border-t border-gray-700 mt-8 text-center text-sm text-gray-500">
+            &copy; 2025 Johnathon Roberts Jr.. Built for a School Project.
+        </footer>
+    </div>
+    
+    <!-- JavaScript for Application Logic -->
+    <script>
+        // --- DATA ---
+        const slideshowImages = [
+            "https://placehold.co/128x128/6366f1/ffffff?text=JRJ",
+            "https://placehold.co/128x128/6366f1/ffffff?text=PARKOUR",
+            "https://placehold.co/128x128/34d399/030712?text=LUFFY",
+            "https://placehold.co/128x128/fcd34d/030712?text=GAMING",
+        ];
+
+        // Mock video data (YouTube embed links are for placeholders)
+        const parkourVideos = [
+            { title: "Front Flip Attempt 1", url: "https://www.youtube.com/embed/k5k0N2_3r10" },
+            { title: "Roll Out Practice", url: "https://www.youtube.com/embed/j-jW_4VdY-4" },
+            { title: "Wall Run Progress", url: "https://www.youtube.com/embed/b87l1c5e_aI" },
+            { title: "Pre-Training Warmup", url: "https://www.youtube.com/embed/u1Sj1gI4E4k" }
+        ];
+
+        const historicalVideos = [
+            { title: "First Day of School", url: "https://www.youtube.com/embed/v9qJ51lW6_U" },
+            { title: "Summer Trip 2023", url: "https://www.youtube.com/embed/N-0g8n4zE2U" },
+            { title: "Birthday Party Age 10", url: "https://www.youtube.com/embed/QdO-pE93F34" },
+        ];
+
+        // Mock photo data
+        const photoUrls = [
+            "https://placehold.co/200x150/6366f1/ffffff?text=Friends",
+            "https://placehold.co/200x150/34d399/030712?text=Roblox+Win",
+            "https://placehold.co/200x150/fcd34d/030712?text=Family",
+            "https://placehold.co/200x150/ef4444/ffffff?text=School",
+            "https://placehold.co/200x150/10b981/ffffff?text=Park+Day",
+            "https://placehold.co/200x150/a855f7/ffffff?text=Hobby+Pic",
+            "https://placehold.co/200x150/fb923c/ffffff?text=Vacation",
+            "https://placehold.co/200x150/3b82f6/ffffff?text=Pet+Pic",
+        ];
+
+        // --- ELEMENTS ---
+        const slideshowElement = document.getElementById('slideshow-image');
+        const views = document.querySelectorAll('.app-view');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // --- FUNCTIONS ---
+        
+        /**
+         * 1. Slideshow Logic
+         */
+        let currentImageIndex = 0;
+        function nextSlide() {
+            currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+            slideshowElement.src = slideshowImages[currentImageIndex];
+        }
+        
+        // Start the slideshow, changing the image every 3 seconds
+        setInterval(nextSlide, 3000); 
+
+
+        /**
+         * 2. Single Page Application (SPA) View Switching Logic
+         */
+        function showView(viewId) {
+            let activeViewFound = false;
+            
+            // 1. Hide all views
+            views.forEach(view => {
+                view.classList.add('hidden');
+            });
+
+            // 2. Show the requested view
+            const activeView = document.getElementById(viewId);
+            if (activeView) {
+                activeView.classList.remove('hidden');
+                activeViewFound = true;
+            } else {
+                // Default to home if view not found
+                document.getElementById('home').classList.remove('hidden');
+                viewId = 'home';
+            }
+
+            // 3. Update navigation active state
+            navLinks.forEach(link => {
+                link.classList.remove('text-white', 'border-b-2', 'border-indigo-500');
+                link.classList.add('text-gray-400');
+                if (link.getAttribute('href') === `#${viewId}`) {
+                    link.classList.add('text-white', 'border-b-2', 'border-indigo-500');
+                    link.classList.remove('text-gray-400');
+                }
+            });
+            
+            return activeViewFound;
+        }
+
+        function handleHashChange() {
+            const hash = window.location.hash.substring(1) || 'home';
+            showView(hash);
+        }
+        
+        // Attach hash change listener
+        window.addEventListener('hashchange', handleHashChange);
+        
+        // Initial load
+        window.onload = function() {
+            // Set the initial view based on the URL hash or default to 'home'
+            handleHashChange(); 
+        };
+
+        
+        /**
+         * 3. Gallery Population and Interaction Logic
+         */
+
+        // Function to create and populate a video gallery
+        function setupVideoGallery(videos, galleryId, iframeId) {
+            const gallery = document.getElementById(galleryId);
+            const iframe = document.getElementById(iframeId);
+
+            gallery.innerHTML = ''; // Clear existing content
+
+            videos.forEach((video, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = 'bg-gray-700 rounded-lg overflow-hidden cursor-pointer shadow-lg hover:shadow-indigo-500/50 transition duration-200 group';
+                thumbnail.innerHTML = `
+                    <div class="video-container">
+                        <!-- Placeholder for thumbnail image -->
+                        <img src="https://placehold.co/300x169/27272a/ffffff?text=Video+${index + 1}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-2">
+                        <p class="text-xs font-medium text-white group-hover:text-indigo-400 truncate">${video.title}</p>
+                    </div>
+                `;
+                
+                // Click handler to load video into viewer
+                thumbnail.addEventListener('click', () => {
+                    iframe.src = `${video.url}?autoplay=1`;
+                    iframe.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+
+                gallery.appendChild(thumbnail);
+            });
+            
+            // Load the first video by default when page is shown
+            if (videos.length > 0) {
+                 iframe.src = `${videos[0].url}`;
+            }
+        }
+        
+        // Function to create and populate the photo gallery
+        function setupPhotoGallery(urls, galleryId) {
+            const gallery = document.getElementById(galleryId);
+            gallery.innerHTML = ''; // Clear existing content
+
+            urls.forEach((url, index) => {
+                const imgContainer = document.createElement('div');
+                imgContainer.className = 'rounded-lg overflow-hidden shadow-lg border border-gray-700 hover:border-amber-400 transition duration-200';
+                imgContainer.innerHTML = `
+                    <img src="${url}" alt="Photo ${index + 1}" 
+                         class="w-full h-full object-cover transition transform hover:scale-105" 
+                         style="aspect-ratio: 4/3;">
+                `;
+                gallery.appendChild(imgContainer);
+            });
+        }
+
+        // Initialize all galleries on page load (or when data is ready)
+        setupVideoGallery(parkourVideos, 'parkour-gallery', 'parkour-iframe');
+        setupVideoGallery(historicalVideos, 'historical-gallery', 'historical-iframe');
+        setupPhotoGallery(photoUrls, 'photo-gallery');
+
+    </script>
+
+</body>
+</html>
