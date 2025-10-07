@@ -82,8 +82,9 @@
                     
                     <!-- Slideshow Area -->
                     <div class="mx-auto w-32 h-32 rounded-full overflow-hidden border-4 border-indigo-500 shadow-lg mb-6">
+                        <!-- Initial image set via JavaScript -->
                         <img id="slideshow-image" 
-                             src="https://placehold.co/128x128/6366f1/ffffff?text=JRJ" 
+                             src="https://github.com/jwroberts1/jwrjr/blob/main/PresentationGuion.jpeg" 
                              alt="Profile Slideshow" 
                              class="w-full h-full object-cover transition-opacity duration-500 ease-in-out">
                     </div>
@@ -209,11 +210,15 @@
     <!-- JavaScript for Application Logic -->
     <script>
         // --- DATA ---
+        // Image URL provided by user for both photo gallery and slideshow.
+        const userImageURL = "https://github.com/jwroberts1/jwrjr/blob/main/PresentationGuion.jpeg";
+
+        // Slideshow updated to use the single image for all slides.
         const slideshowImages = [
-            "https://placehold.co/128x128/6366f1/ffffff?text=JRJ",
-            "https://placehold.co/128x128/6366f1/ffffff?text=PARKOUR",
-            "https://placehold.co/128x128/34d399/030712?text=LUFFY",
-            "https://placehold.co/128x128/fcd34d/030712?text=GAMING",
+            userImageURL,
+            userImageURL,
+            userImageURL,
+            userImageURL,
         ];
 
         // Mock video data (YouTube embed links are for placeholders)
@@ -230,16 +235,18 @@
             { title: "Birthday Party Age 10", url: "https://www.youtube.com/embed/QdO-pE93F34" },
         ];
 
-        // Mock photo data
+        // Photo data using the consistent image URL
+        // NOTE: The provided GitHub link is a direct file path and may not display reliably in an <img> tag. 
+        // If the images don't appear, try getting the "Raw" link from GitHub.
         const photoUrls = [
-            "https://placehold.co/200x150/6366f1/ffffff?text=Friends",
-            "https://placehold.co/200x150/34d399/030712?text=Roblox+Win",
-            "https://placehold.co/200x150/fcd34d/030712?text=Family",
-            "https://placehold.co/200x150/ef4444/ffffff?text=School",
-            "https://placehold.co/200x150/10b981/ffffff?text=Park+Day",
-            "https://placehold.co/200x150/a855f7/ffffff?text=Hobby+Pic",
-            "https://placehold.co/200x150/fb923c/ffffff?text=Vacation",
-            "https://placehold.co/200x150/3b82f6/ffffff?text=Pet+Pic",
+            userImageURL,
+            userImageURL,
+            userImageURL,
+            userImageURL,
+            userImageURL,
+            userImageURL,
+            userImageURL,
+            userImageURL,
         ];
 
         // --- ELEMENTS ---
