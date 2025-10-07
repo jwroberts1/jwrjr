@@ -328,14 +328,14 @@
 
             videos.forEach((video, index) => {
                 // Logic to extract video ID from the embed URL and construct the thumbnail URL
-                // FIX: Updated regex to specifically capture only the ID before any query parameters (?)
+                // The regex captures only the ID before any query parameters (?)
                 const videoIdMatch = video.url.match(/embed\/([^?]+)/);
-                let thumbnailUrl = 'https://placehold.co/300x169/27272a/ffffff?text=Video+Thumbnail+Error'; // Fallback
+                let thumbnailUrl = 'https://placehold.co/300x169/27272a/ffffff?text=Image+Error'; // Fallback
 
                 if (videoIdMatch && videoIdMatch[1]) {
                     const videoId = videoIdMatch[1];
-                    // Using 'hqdefault.jpg' for high quality thumbnail from YouTube
-                    thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                    // FIX: Trying 'mqdefault.jpg' (medium quality default) as it often works when '0.jpg' or 'hqdefault.jpg' fail for Shorts.
+                    thumbnailUrl = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
                 }
                 
                 const thumbnail = document.createElement('div');
@@ -345,7 +345,7 @@
                         <!-- Use the dynamic thumbnail URL -->
                         <img src="${thumbnailUrl}" 
                              alt="${video.title} Thumbnail" 
-                             onerror="this.onerror=null;this.src='https://placehold.co/300x169/27272a/ffffff?text=Image+Error';" 
+                             onerror="this.onerror=null;this.src='https://placehold.co/300x169/27272a/ffffff?text=Video+Loading+Error';" 
                              class="w-full h-full object-cover">
                     </div>
                     <div class="p-2">
