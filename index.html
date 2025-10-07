@@ -88,7 +88,8 @@
                              alt="Profile Slideshow" 
                              class="w-full h-full object-cover transition-opacity duration-500 ease-in-out">
                     </div>
-                    <a href="#interests" class="inline-block px-8 py-3 text-lg font-semibold rounded-full text-white bg-indigo-600 hover:bg-indigo-500 transition duration-300 shadow-md hover:shadow-lg">
+                    <!-- Added ID for the new scroll handler -->
+                    <a href="#interests" id="scroll-to-interests" class="inline-block px-8 py-3 text-lg font-semibold rounded-full text-white bg-indigo-600 hover:bg-indigo-500 transition duration-300 shadow-md hover:shadow-lg">
                         See My Passions &rarr;
                     </a>
                 </div>
@@ -334,8 +335,8 @@
 
                 if (videoIdMatch && videoIdMatch[1]) {
                     const videoId = videoIdMatch[1];
-                    // FIX: Trying 'mqdefault.jpg' (medium quality default) as it often works when '0.jpg' or 'hqdefault.jpg' fail for Shorts.
-                    thumbnailUrl = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+                    // FIX: Using the highly reliable '0.jpg' thumbnail again.
+                    thumbnailUrl = `https://img.youtube.com/vi/${videoId}/0.jpg`;
                 }
                 
                 const thumbnail = document.createElement('div');
@@ -389,6 +390,19 @@
         setupVideoGallery(parkourVideos, 'parkour-gallery', 'parkour-iframe');
         setupVideoGallery(historicalVideos, 'historical-gallery', 'historical-iframe');
         setupPhotoGallery(photoUrls, 'photo-gallery');
+
+
+        /**
+         * 4. Scroll Logic for Home Page Button (Fix for "See My Passions")
+         */
+        document.getElementById('scroll-to-interests').addEventListener('click', function(e) {
+            e.preventDefault();
+            const interestsSection = document.getElementById('interests');
+            if (interestsSection) {
+                // Use scrollIntoView to manually trigger a smooth scroll to the section
+                interestsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
 
     </script>
 
